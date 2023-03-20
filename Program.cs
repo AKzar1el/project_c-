@@ -196,6 +196,22 @@ namespace ConsoleApp1
             num1 = num2;
             num2 = temp;
         }
+        
+        enum CarColor : byte
+        {
+            Orange = 1,
+            Blue,
+            Green,
+            Red,
+            Black,
+            Yellow
+        }
+
+        static void PaintCar(CarColor color)
+        {
+            Console.WriteLine("The car was painted {0} with the code {1}",
+                color, (int)color);
+        }
         // ------ END OF FUNCTIONS ------
 
         static void Main(string[] args)
@@ -206,6 +222,10 @@ namespace ConsoleApp1
             Console.BackgroundColor = ConsoleColor.White;
             Console.Clear();
 
+            // Dates
+            DateTime dateTime = DateTime.Now;
+            Console.WriteLine("Current time {0}", dateTime);
+
             // Reading / Writing args
             Console.Write("What is your name? ");
             string name = Console.ReadLine();
@@ -214,14 +234,12 @@ namespace ConsoleApp1
             // Exception Handling
             try
             {
-                int solution;
-                int num1 = 5;
-                int num2 = 10;
+                int solution;int num1 = 5;int num2 = 10;
                 Swap(ref num1, ref num2);
                 Console.WriteLine("num1 is now {0} : num2 is now {1}", num1,num2);
+
                 DoubleIt(10, out solution);
                 Console.WriteLine("Double of 10 is {0}.",solution);
-                StringBuilders();
             }
             catch (Exception ex)
             {
@@ -232,6 +250,8 @@ namespace ConsoleApp1
             finally
             {
                 //Console.WriteLine("Handling the error!");
+                CarColor car1 = CarColor.Blue;
+                PaintCar(car1);
             }
 
         }
