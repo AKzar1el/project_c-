@@ -26,7 +26,15 @@ namespace ConsoleApp1
 
             decimal biggestDecimal = decimal.MaxValue;
 
+            double biggestDouble = double.MaxValue; 
 
+            float biggestFloat = float.MaxValue;
+
+            Console.WriteLine("Biggest Integer : {0}", biggestInt);
+            Console.WriteLine("Biggest Long : {0}", biggestLong);
+            Console.WriteLine("Biggest Decimal : {0}", biggestDecimal);
+            Console.WriteLine("Biggest Double : {0}", biggestDouble);
+            Console.WriteLine("Biggest Float : {0}", biggestFloat);
         }
     }
 }
