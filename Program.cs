@@ -1,23 +1,15 @@
 ﻿// import a namespace called System 
 using System;
+using System.Xml.Linq;
 
 namespace ConsoleApp1
 {
     public class Program
     {
-        // This function can run before
-        static void Main(string[] args)
+        // ------ FUNCTIONS ------
+
+        static void DataTypes()
         {
-
-            Console.ForegroundColor = ConsoleColor.Black;
-            Console.BackgroundColor = ConsoleColor.White;
-            Console.Clear();
-
-            // Reading / Writing args
-            Console.Write("What is your name? ");
-            string name = Console.ReadLine();
-            Console.WriteLine($"Hello {name}");
-
             // Data types
             bool canI = true; //false
 
@@ -27,7 +19,7 @@ namespace ConsoleApp1
 
             decimal biggestDecimal = decimal.MaxValue;
 
-            double biggestDouble = double.MaxValue; 
+            double biggestDouble = double.MaxValue;
 
             float biggestFloat = float.MaxValue;
 
@@ -37,6 +29,10 @@ namespace ConsoleApp1
             Console.WriteLine("Biggest Double : {0}", biggestDouble);
             Console.WriteLine("Biggest Float : {0}", biggestFloat);
 
+        }
+
+        static void CastingFormating()
+        {
             // Casting
             double dblFromStr = double.Parse("1.234");
             string strVal = dblFromStr.ToString();
@@ -48,7 +44,10 @@ namespace ConsoleApp1
             Console.WriteLine("Pad with 0s : {0:d4}", 23);
             Console.WriteLine("3 Decimals : {0:f3}", 23.45555);
             Console.WriteLine("Commas : {0:n4}", 2300);
+        }
 
+        static void StringManipulation()
+        {
             // String manipulation
             string randString = "This is a string";
             Console.WriteLine("String Length : {0}",
@@ -64,8 +63,80 @@ namespace ConsoleApp1
             Console.WriteLine("Replace String : {0}",
                 randString.Replace("string", "sentence"));
             Console.WriteLine("Compare A to B, {0}",
-                String.Compare("A","B",
+                String.Compare("A", "B",
                 StringComparison.OrdinalIgnoreCase));
+
+            Console.WriteLine("-------------------------");
+
+            Console.WriteLine(" A = a : {0}",
+                String.Equals("A", "a",
+                StringComparison.OrdinalIgnoreCase));
+            // PadLeft, PadRight, Trim, ToUpper, ToLower,
+
+            string newString = String.Format("{0} saw a {1}",
+                "Boar", randString);
+            Console.Write(newString + "\n");
+            // \' \" \\ \t \a
+            Console.WriteLine(@"\n produces new line.");
+        }
+
+        static void Arrays()
+        {
+            // Arrays
+            int[] favNums = new int[3];
+            string[] customers = { "Bob", "Sally", "Sue" };
+            var employees = new[] { "Bob", "Sally", "Sue" };
+            object[] allTypes = { "Bob", 1.234, 1234 };
+
+            for (int i = 0; i < allTypes.Length; i++)
+            {
+                Console.WriteLine("Array {0} has value {1} at position {2}.",
+                    "allTypes", allTypes[i], i + 1);
+            }
+
+            // Multid Arrays
+            string[,] custNames = new string[2, 2] { { "Bob", "Tomi" },
+            { "Sally", "Tom" }};
+            Console.WriteLine(custNames.GetValue(1, 1));
+            for (int x = 0; x < custNames.GetLength(0); x++)
+            {
+                for (int y = 0; y < custNames.GetLength(1); y++)
+                {
+                    Console.Write(custNames.GetValue(x, y) + " ");
+                }
+                Console.WriteLine();
+            }
+
+            int[] randNums = { 1, 4, 5, 6, 7 };
+            PrintArray(randNums, "lol");
+        }
+
+        static void PrintArray(int[] intArray, string mess)
+        {
+            foreach (int i in intArray)
+            {
+                Console.WriteLine("{0} : {1}", mess, i);
+            }
+        }
+
+        // ------ END OF FUNCTIONS ------
+        static void Main(string[] args)
+        {
+
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.Clear();
+
+            // Reading / Writing args
+            Console.Write("What is your name? ");
+            string name = Console.ReadLine();
+            Console.WriteLine($"Hello {name}");
+
+
+            Arrays();
+
+
+            
         }
     }
 }
