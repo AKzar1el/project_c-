@@ -1,5 +1,7 @@
 ﻿// import a namespace called System 
 using System;
+using System.Globalization;
+using System.Text;
 using System.Xml.Linq;
 
 namespace ConsoleApp1
@@ -109,7 +111,7 @@ namespace ConsoleApp1
 
             int[] randNums = { 1, 4, 5, 6, 7 };
             PrintArray(randNums, "lol");
-            // IndexOf, SetValue, Copy, CreateInstance, Find
+             // IndexOf, SetValue, Copy, CreateInstance, Find
         }
 
         static void PrintArray(int[] intArray, string mess)
@@ -148,7 +150,7 @@ namespace ConsoleApp1
         static void Loops()
         {
             // for, foreach, while, dowhile
-            int i = 11;
+            int i = 1;
             while (i <= 10)
             {
                 if (i % 2 == 0)
@@ -169,9 +171,20 @@ namespace ConsoleApp1
             
         }
 
+        static void StringBuilders()
+        {
+            StringBuilder sb = new StringBuilder("Random Text");
+            StringBuilder sb2 = new StringBuilder("Different Text",256);
+            Console.WriteLine("Capacity : {0}", sb2.Capacity);
+            Console.WriteLine("Length : {0}", sb2.Length);
+            sb2.AppendLine("\nMore important text.");
+            
+        }
+
         // ------ END OF FUNCTIONS ------
         static void Main(string[] args)
         {
+            CultureInfo enUS = CultureInfo.CreateSpecificCulture("en-US");
 
             Console.ForegroundColor = ConsoleColor.Black;
             Console.BackgroundColor = ConsoleColor.White;
@@ -185,7 +198,7 @@ namespace ConsoleApp1
             // Exception Handling
             try
             {
-                Loops();
+                StringBuilders();
                 
             }
             catch (Exception ex)
@@ -194,6 +207,11 @@ namespace ConsoleApp1
                 Console.WriteLine(ex.GetType().Name);
                 Console.WriteLine(ex.Message);
             }
+            finally
+            {
+                //Console.WriteLine("Handling the error!");
+            }
+
         }
     }
 }
