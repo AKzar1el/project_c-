@@ -109,6 +109,7 @@ namespace ConsoleApp1
 
             int[] randNums = { 1, 4, 5, 6, 7 };
             PrintArray(randNums, "lol");
+            // IndexOf, SetValue, Copy, CreateInstance, Find
         }
 
         static void PrintArray(int[] intArray, string mess)
@@ -117,6 +118,55 @@ namespace ConsoleApp1
             {
                 Console.WriteLine("{0} : {1}", mess, i);
             }
+        }
+
+        static void Conditionals()
+        {
+            // Relational Op : > < >= <= == !=
+            // Logical Op : && || !
+            if ((1 > 2) && (1 < 2))
+            {
+                // Do something
+            }
+            // Ternary Op
+            bool canDo = 1 > 2 ? true : false;
+            Console.WriteLine(canDo);
+            // Switch
+            switch (15)
+            {
+                case 1: 
+                    Console.WriteLine("It is 1");
+                    break;
+                case 2:
+                    break;
+                default:
+                    Console.WriteLine("No value found.");
+                    break;
+            }
+        }
+
+        static void Loops()
+        {
+            // for, foreach, while, dowhile
+            int i = 11;
+            while (i <= 10)
+            {
+                if (i % 2 == 0)
+                {
+                    i++;
+                    continue;
+                }
+                if (i == 9) break;
+                Console.WriteLine(i);
+                i++;
+            }
+            i = 1;
+            do
+            {
+                i++;
+            } while (i < 10);
+            Console.WriteLine(i);
+            
         }
 
         // ------ END OF FUNCTIONS ------
@@ -132,11 +182,18 @@ namespace ConsoleApp1
             string name = Console.ReadLine();
             Console.WriteLine($"Hello {name}");
 
-
-            Arrays();
-
-
-            
+            // Exception Handling
+            try
+            {
+                Loops();
+                
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetType().Name);
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }
