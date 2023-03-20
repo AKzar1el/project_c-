@@ -9,7 +9,10 @@ namespace ConsoleApp1
     public class Program
     {
         // ------ FUNCTIONS ------
-
+        // public : Can be accessed from another class
+        // private : Can't be accessed from another class
+        // protected : Can't be accessed by class and can be accessed by derived classes
+        // void, data types
         static void DataTypes()
         {
             // Data types
@@ -179,9 +182,22 @@ namespace ConsoleApp1
             Console.WriteLine("Length : {0}", sb2.Length);
             sb2.AppendLine("\nMore important text.");
             
+            // Append, AppendFormat, Replace, Insert, Remove, Clear
         }
 
+        static void DoubleIt(int x, out int solution)
+        {
+            solution = x * 2;
+        }
+
+        public static void Swap(ref int num1, ref int num2)
+        {
+            int temp = num1;
+            num1 = num2;
+            num2 = temp;
+        }
         // ------ END OF FUNCTIONS ------
+
         static void Main(string[] args)
         {
             CultureInfo enUS = CultureInfo.CreateSpecificCulture("en-US");
@@ -198,8 +214,14 @@ namespace ConsoleApp1
             // Exception Handling
             try
             {
+                int solution;
+                int num1 = 5;
+                int num2 = 10;
+                Swap(ref num1, ref num2);
+                Console.WriteLine("num1 is now {0} : num2 is now {1}", num1,num2);
+                DoubleIt(10, out solution);
+                Console.WriteLine("Double of 10 is {0}.",solution);
                 StringBuilders();
-                
             }
             catch (Exception ex)
             {
