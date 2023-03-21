@@ -250,6 +250,8 @@ namespace ConsoleApp1
                 return length * width;
             }
         }
+        // 
+
         static void Main(string[] args)
         {
             CultureInfo enUS = CultureInfo.CreateSpecificCulture("en-US");
@@ -288,7 +290,7 @@ namespace ConsoleApp1
                 //Console.WriteLine("Handling the error!");
                 CarColor car1 = CarColor.Blue;
                 PaintCar(car1);
-                Structs();
+                
             }
 
         }

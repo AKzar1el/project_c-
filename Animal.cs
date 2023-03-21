@@ -8,9 +8,10 @@ namespace project_c_
 {
     class Animal
     {
-        public string name;
-        public string sound;
+        private string name;
+        private string sound;
         static int numOfAnimals = 0;
+
         // Initialization through a constructor - constructor has the same name as the class
         public Animal() 
         {
@@ -44,5 +45,34 @@ namespace project_c_
             return numOfAnimals;
         }
 
+        public void SetName(string name)
+        {
+            if (!name.Any(char.IsDigit))
+            {
+                this.name = name;
+            } else
+            {
+                this.name = "No Name";
+                Console.WriteLine("Name can't contain numbers.");
+            }
+        }
+
+        public string GetName()
+        {
+            return name;
+        }
+
+        public string Sound
+        {
+            get { return sound; }
+            set 
+            { 
+                sound = value; 
+            }
+        }
+
+        public string Owner { get; set; } = "No Owner";
+
+        public static int numOf
     }
 }
