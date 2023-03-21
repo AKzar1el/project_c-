@@ -1,4 +1,5 @@
 ﻿// import a namespace called System 
+using project_c_;
 using System;
 using System.Globalization;
 using System.Text;
@@ -212,8 +213,43 @@ namespace ConsoleApp1
             Console.WriteLine("The car was painted {0} with the code {1}",
                 color, (int)color);
         }
+
+        public static void Structs()
+        {
+            Rectangle rect1;
+            rect1.length = 200;
+            rect1.width = 50;
+            Console.WriteLine(rect1.Area());
+
+            Rectangle rect2 = new Rectangle(100, 40);
+            rect2 = rect1;
+            rect1.length = 33;
+            Console.WriteLine(rect2.length);
+            Console.WriteLine(rect1.length);
+
+            Animal fox = new Animal()
+            {
+                name = "Red",
+                sound = "Raaw"
+            };
+            Console.WriteLine("# of Animals is {0}",
+                Animal.GetNumAnimals());
+        }
         // ------ END OF FUNCTIONS ------
 
+        // Struct
+        struct Rectangle
+        {
+            public double length;
+            public double width;
+
+            // Struct Method
+            public Rectangle(double l = 1, double w = 1) { length = l; width = w; }
+            public double Area()
+            {
+                return length * width;
+            }
+        }
         static void Main(string[] args)
         {
             CultureInfo enUS = CultureInfo.CreateSpecificCulture("en-US");
@@ -252,6 +288,7 @@ namespace ConsoleApp1
                 //Console.WriteLine("Handling the error!");
                 CarColor car1 = CarColor.Blue;
                 PaintCar(car1);
+                Structs();
             }
 
         }
