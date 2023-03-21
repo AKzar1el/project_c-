@@ -12,6 +12,7 @@ namespace ConsoleApp1
     public class Program
     {
         // ------ FUNCTIONS ------
+        #region Functions
         // public : Can be accessed from another class
         // private : Can't be accessed from another class
         // protected : Can't be accessed by class and can be accessed by derived classes
@@ -313,6 +314,7 @@ namespace ConsoleApp1
 
         public static void Queues()
         {
+            // FIFO
             Queue queue = new Queue();
             queue.Enqueue(1);
             queue.Enqueue(2);
@@ -329,9 +331,121 @@ namespace ConsoleApp1
 
         public static void Stacks()
         {
+            // LIFO
             Stack stack = new Stack();
+            stack.Push(1);
+            stack.Push(2);
+            stack.Push(3);
+            // Peek (Look at first without taking), Pop, Contains
+        }
+
+        public static void Generics()
+        {
+            List<Person> people = new List<Person>();
+            List<int> numbers = new List<int>();
+            numbers.Add(24);
+
+            people.Add(new Person() { Name = "Cindi" });
+            people.Add(new Person() { Name = "Mark" });
+            people.Add(new Person() { Name = "John" });
+
+            people.Insert(1, new Person() { Name = "Bob" });
+            people.Insert(1, new Person() {  });
+
+            foreach (Person person in people)
+            {
+                Console.WriteLine(person.Name);
+            }
+
+            Console.WriteLine(Person.GetSum());
+            CA User = Authority.GetPerson();
+            User.FirstName();
+        }
+        #endregion
+        #region Tasks
+        public static void DrawTriangle(object symbol, int wh)
+        {
+            int z = wh;
+            for (int x = 0; x < z; x++) 
+            {
+                int i = wh;
+                while (i > 0)
+                {
+                    Console.Write($"{symbol}");
+                    i--;
+                }
+                wh--;
+                Console.Write("\n");
+            }
+        }
+        public static void Multiples(int n)
+        {
+            ArrayList numbers = new ArrayList();
+            int index = 0;
+            while (n > 0)
+            {
+                if (n % 3 == 0)
+                {
+                    if (n % 5 == 0)
+                    {
+                        numbers.Add(n);
+                    }
+                    
+                }
+                n--;
+            }
+            numbers.Sort();
+            foreach (int  i in numbers)
+            {
+                Console.WriteLine(i + " ");
+            }
+        }
+        public static void Palindrome(string word)
+        {
+            char[] chars = word.ToLower().ToCharArray();
+            
+            ArrayList chars2 = new ArrayList();
+            chars2.AddRange(chars);
+            chars2.Reverse();
+            
+            foreach (char c in chars2)
+            {
+                Console.Write(c); Console.Write(" ");
+            }
+            int index = 0;
+            foreach (char c in chars)
+            {
+                Console.WriteLine(chars2.IndexOf(c));
+                index = chars2.IndexOf(c)+index;
+                //Console.Write(c); Console.Write(" ");
+            }
+            Console.WriteLine(word.Length + " "+index);
+
+            StringBuilder sb = new StringBuilder();
+            StringBuilder sb2 = new StringBuilder();
+
+            string[] palindrom = word.Split(' ') ;
+            foreach (string f in palindrom)
+            {
+                sb.Append(f.ToLower());
+            }
+            
+            for (int i = palindrom.Length-1;i>=0;i--)
+            {
+                for (int j = palindrom[i].Length-1; j >= 0; j--)
+                {
+                    Console.WriteLine(palindrom[i][j]);
+                    sb2.Append(palindrom[i][j].ToString().ToLower());
+                }
+              
+                
+            }
+
+            Console.WriteLine("SB1 : {0} // SB2 : {1} //\nEquals : {2}", sb.ToString(), sb2.ToString(), sb.Equals(sb2));
 
         }
+
+        #endregion
         // ------ END OF FUNCTIONS ------
 
         // Struct
@@ -355,7 +469,7 @@ namespace ConsoleApp1
             CultureInfo enUS = CultureInfo.CreateSpecificCulture("en-US");
 
             Console.ForegroundColor = ConsoleColor.Black;
-            Console.BackgroundColor = ConsoleColor.White;
+            Console.BackgroundColor = ConsoleColor.Magenta;
             Console.Clear();
 
             // Dates
@@ -363,11 +477,9 @@ namespace ConsoleApp1
             Console.WriteLine("Current time {0}", dateTime);
 
             // Reading / Writing args
-            Console.Write("What is your name? ");
-            string name = Console.ReadLine();
-            Console.WriteLine($"Hello {name}");
-            #endregion  
 
+            #endregion  
+            Palindrome("Ali se bo Ana obesila");
         }
     }
 }
