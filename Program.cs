@@ -293,6 +293,25 @@ namespace ConsoleApp1
             aList.AddRange(aList2);
             // Sort, Reverse, RemoveAt, RemoveRange, Insert, IndexOf, ToArray,
         }
+
+        public static void Dict()
+        {
+            Dictionary<string, string> dic = new Dictionary<string, string>();
+            dic.Add("Clark Kent", "Milionar");
+            dic.Add("Jeff Bezos", "Bilionar");
+            dic.Add("Test", "Test1");
+
+            dic.Remove("Test");
+            // ContainsKey, ContainsValue, Count, TryGetValue
+
+            foreach(KeyValuePair<string, string> pair in dic)
+            {
+                Console.WriteLine("{0} : {1}",
+                    pair.Key, pair.Value);
+            }
+        }
+
+        
         // ------ END OF FUNCTIONS ------
 
         // Struct
@@ -328,7 +347,6 @@ namespace ConsoleApp1
             string name = Console.ReadLine();
             Console.WriteLine($"Hello {name}");
             #endregion  
-
 
         }
     }
