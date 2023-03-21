@@ -445,6 +445,63 @@ namespace ConsoleApp1
 
         }
 
+        public static void IsNumber (string obj)
+        {
+            if(obj == null)
+            {
+                Console.WriteLine("False");
+            }else 
+            {
+                try
+                {
+                    Convert.ToInt64(obj);
+                    Console.WriteLine("True");
+                }catch (FormatException)
+                {
+                    Console.WriteLine("False");
+                }
+            }
+        }
+
+        public static void ReadAndWriteFile(string name)
+        {
+            // Create a txt file
+            string fileNameAndPath = string.Format(@"C:\Users\gx4ma\Desktop\solidity+cranq\ui+ux\project_c#\project_c#\{0}.txt",name);
+            List<string> userIn;
+            string? singleUserIn = string.Empty;
+
+            // If file exists add to it, else create new one
+            if (File.Exists(fileNameAndPath))
+            {
+                userIn = File.ReadAllLines(fileNameAndPath).ToList();
+            } else
+            {
+                userIn = new();
+            }
+
+            // User input
+            do
+            {
+                Console.Write("Enter Message (or return to quit): ");
+                singleUserIn = Console.ReadLine();
+                if (singleUserIn?.Length > 0)
+                {
+                    userIn.Add(singleUserIn);
+                }
+            } while (singleUserIn?.Length > 0);
+
+            //Write all lines to txt file
+            File.WriteAllLines(fileNameAndPath, userIn.ToArray());
+
+            //Read all lines of txt file
+            string[] textFile = File.ReadAllLines(fileNameAndPath);
+
+            //Show lines
+            foreach (string line in textFile) 
+            {
+                Console.WriteLine(line);
+            }
+        }
         #endregion
         // ------ END OF FUNCTIONS ------
 
@@ -479,7 +536,8 @@ namespace ConsoleApp1
             // Reading / Writing args
 
             #endregion  
-            Palindrome("Ali se bo Ana obesila");
+            ReadAndWriteFile("Demo");
+            
         }
     }
 }
