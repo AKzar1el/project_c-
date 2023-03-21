@@ -8,8 +8,8 @@ namespace project_c_
 {
     class Animal
     {
-        private string name;
-        private string sound;
+        public string name;
+        public string sound;
         static int numOfAnimals = 0;
 
         // Initialization through a constructor - constructor has the same name as the class
@@ -73,6 +73,6 @@ namespace project_c_
 
         public string Owner { get; set; } = "No Owner";
 
-        public static int numOf
+        
     }
 }

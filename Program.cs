@@ -235,6 +235,18 @@ namespace ConsoleApp1
             Console.WriteLine("# of Animals is {0}",
                 Animal.GetNumAnimals());
         }
+
+        public static void WatchingTV()
+        {
+            IElectronicDevice TV = TVRemote.GetDevice();
+
+            PowerButton powBut = new PowerButton(TV);
+
+            powBut.Execute();
+            powBut.Undo();
+            powBut.Execute();
+            powBut.Undo();
+        }
         // ------ END OF FUNCTIONS ------
 
         // Struct
@@ -290,7 +302,7 @@ namespace ConsoleApp1
                 //Console.WriteLine("Handling the error!");
                 CarColor car1 = CarColor.Blue;
                 PaintCar(car1);
-                
+                WatchingTV();
             }
 
         }
