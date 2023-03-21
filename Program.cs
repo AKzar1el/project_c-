@@ -311,7 +311,21 @@ namespace ConsoleApp1
             }
         }
 
-        
+        public static void Queues()
+        {
+            Queue queue = new Queue();
+            queue.Enqueue(1);
+            queue.Enqueue(2);
+            queue.Enqueue(3);
+
+            Console.WriteLine("1 in Queue : {0}",
+                queue.Contains(1));
+            // Dequeue, Peek, Remove, ToArray, Join, Clear
+            foreach (object o in queue) 
+            {
+                Console.WriteLine($"Queue : {o}");
+            }
+        }
         // ------ END OF FUNCTIONS ------
 
         // Struct
