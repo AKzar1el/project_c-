@@ -326,6 +326,12 @@ namespace ConsoleApp1
                 Console.WriteLine($"Queue : {o}");
             }
         }
+
+        public static void Stacks()
+        {
+            Stack stack = new Stack();
+
+        }
         // ------ END OF FUNCTIONS ------
 
         // Struct
