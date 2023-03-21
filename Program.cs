@@ -4,6 +4,8 @@ using System;
 using System.Globalization;
 using System.Text;
 using System.Xml.Linq;
+using System.Collections;
+using System.Collections.Concurrent;
 
 namespace ConsoleApp1
 {
@@ -247,6 +249,50 @@ namespace ConsoleApp1
             powBut.Execute();
             powBut.Undo();
         }
+
+        public static void ErrorHandling()
+        {
+            // Exception Handling
+            try
+            {
+                int solution; int num1 = 5; int num2 = 10;
+                Swap(ref num1, ref num2);
+                Console.WriteLine("num1 is now {0} : num2 is now {1}", num1, num2);
+
+                DoubleIt(10, out solution);
+                Console.WriteLine("Double of 10 is {0}.", solution);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetType().Name);
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                //Console.WriteLine("Handling the error!");
+                CarColor car1 = CarColor.Blue;
+                PaintCar(car1);
+                WatchingTV();
+            }
+        }
+
+        public static void ListArray() 
+        {
+            ArrayList aList = new ArrayList();
+
+            aList.Add("Bob");
+            aList.Add(40);
+
+            Console.WriteLine("Count : {0}", aList.Count);
+            Console.WriteLine("Capacity : {0}", aList.Capacity);
+
+            ArrayList aList2 = new ArrayList();
+            aList2.AddRange(new object[] { "Mike", "Sally", "Egg" });
+
+            aList.AddRange(aList2);
+            // Sort, Reverse, RemoveAt, RemoveRange, Insert, IndexOf, ToArray,
+        }
         // ------ END OF FUNCTIONS ------
 
         // Struct
@@ -266,6 +312,7 @@ namespace ConsoleApp1
 
         static void Main(string[] args)
         {
+            #region Init Code
             CultureInfo enUS = CultureInfo.CreateSpecificCulture("en-US");
 
             Console.ForegroundColor = ConsoleColor.Black;
@@ -280,30 +327,8 @@ namespace ConsoleApp1
             Console.Write("What is your name? ");
             string name = Console.ReadLine();
             Console.WriteLine($"Hello {name}");
+            #endregion  
 
-            // Exception Handling
-            try
-            {
-                int solution;int num1 = 5;int num2 = 10;
-                Swap(ref num1, ref num2);
-                Console.WriteLine("num1 is now {0} : num2 is now {1}", num1,num2);
-
-                DoubleIt(10, out solution);
-                Console.WriteLine("Double of 10 is {0}.",solution);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-                Console.WriteLine(ex.GetType().Name);
-                Console.WriteLine(ex.Message);
-            }
-            finally
-            {
-                //Console.WriteLine("Handling the error!");
-                CarColor car1 = CarColor.Blue;
-                PaintCar(car1);
-                WatchingTV();
-            }
 
         }
     }
