@@ -10,8 +10,14 @@ namespace project_c_
     {
         public string Name { get; set; }
         static int UiD = 0;
-
-        public Person(string name = "No Name") { Name = name; UiD++; }
+        public string Age { get; }
+        
+        public Person(string name = "No Name", string age = "0") 
+        { 
+            Name = name; 
+            UiD++;
+            Age = age;
+        }
 
         public static int GetSum()
         {

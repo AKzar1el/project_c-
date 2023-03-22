@@ -466,7 +466,7 @@ namespace ConsoleApp1
         public static void ReadAndWriteFile(string name)
         {
             // Create a txt file
-            string fileNameAndPath = string.Format(@"C:\Users\gx4ma\Desktop\solidity+cranq\ui+ux\project_c#\project_c#\{0}.txt",name);
+            string fileNameAndPath = string.Format(@"C:\Users\gx4ma\Desktop\solidity+cranq\ui+ux\project_c#\project_c#\{0}.txt", name);
             List<string> userIn;
             string? singleUserIn = string.Empty;
 
@@ -474,7 +474,8 @@ namespace ConsoleApp1
             if (File.Exists(fileNameAndPath))
             {
                 userIn = File.ReadAllLines(fileNameAndPath).ToList();
-            } else
+            }
+            else
             {
                 userIn = new();
             }
@@ -497,10 +498,25 @@ namespace ConsoleApp1
             string[] textFile = File.ReadAllLines(fileNameAndPath);
 
             //Show lines
-            foreach (string line in textFile) 
+            foreach (string line in textFile)
             {
                 Console.WriteLine(line);
             }
+        }
+        public static string ReverseString(string word)
+        {
+            List<char> wordRev = new();
+            wordRev.AddRange(word);
+            wordRev.Reverse();
+
+            StringBuilder sb = new();
+
+            foreach (char c in wordRev)
+            {
+                Console.WriteLine(c+" ");
+                sb.Append(c);
+            }
+            return sb.ToString();
         }
         #endregion
         // ------ END OF FUNCTIONS ------
@@ -536,8 +552,8 @@ namespace ConsoleApp1
             // Reading / Writing args
 
             #endregion  
-            ReadAndWriteFile("Demo");
-            
+
+            Console.WriteLine(ReverseString("tomi je car"));
         }
     }
 }
