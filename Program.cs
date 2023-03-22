@@ -523,7 +523,6 @@ namespace ConsoleApp1
         {
             for (int x = 2;  x < number/2+1; x++)
             {
-                Console.WriteLine("x je " + x);
                 if (x % number == 0)
                 {
                     return false;
