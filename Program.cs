@@ -402,25 +402,6 @@ namespace ConsoleApp1
         }
         public static void Palindrome(string word)
         {
-            char[] chars = word.ToLower().ToCharArray();
-            
-            ArrayList chars2 = new ArrayList();
-            chars2.AddRange(chars);
-            chars2.Reverse();
-            
-            foreach (char c in chars2)
-            {
-                Console.Write(c); Console.Write(" ");
-            }
-            int index = 0;
-            foreach (char c in chars)
-            {
-                Console.WriteLine(chars2.IndexOf(c));
-                index = chars2.IndexOf(c)+index;
-                //Console.Write(c); Console.Write(" ");
-            }
-            Console.WriteLine(word.Length + " "+index);
-
             StringBuilder sb = new StringBuilder();
             StringBuilder sb2 = new StringBuilder();
 
@@ -437,8 +418,6 @@ namespace ConsoleApp1
                     Console.WriteLine(palindrom[i][j]);
                     sb2.Append(palindrom[i][j].ToString().ToLower());
                 }
-              
-                
             }
 
             Console.WriteLine("SB1 : {0} // SB2 : {1} //\nEquals : {2}", sb.ToString(), sb2.ToString(), sb.Equals(sb2));
@@ -518,6 +497,27 @@ namespace ConsoleApp1
             }
             return sb.ToString();
         }
+
+        public static bool IsSubstring(string word, string subword)
+        {
+            var obj = word;
+            var subObj = subword;
+            int index = 0;
+
+            foreach (char c in obj)
+            {
+                if (subObj[index].Equals(c))
+                {
+                    index++;
+                    if (index == subObj.Length)
+                    {
+                        return true;
+                    }
+                    
+                } else { index = 0; }
+            }
+            return false;
+        }
         #endregion
         // ------ END OF FUNCTIONS ------
 
@@ -553,7 +553,7 @@ namespace ConsoleApp1
 
             #endregion  
 
-            Console.WriteLine(ReverseString("tomi je car"));
+            Console.WriteLine(IsSubstring("tomi je car", "je"));
         }
     }
 }
