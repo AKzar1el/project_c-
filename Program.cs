@@ -518,6 +518,22 @@ namespace ConsoleApp1
             }
             return false;
         }
+
+        public static bool IsPrime(int number)
+        {
+            for (int x = 2;  x < number/2+1; x++)
+            {
+                Console.WriteLine("x je " + x);
+                if (x % number == 0)
+                {
+                    return false;
+                } else if (number % x == 0)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
         #endregion
         // ------ END OF FUNCTIONS ------
 
@@ -553,7 +569,7 @@ namespace ConsoleApp1
 
             #endregion  
 
-            Console.WriteLine(IsSubstring("tomi je car", "je"));
+            Console.WriteLine(IsPrime(7));
         }
     }
 }
